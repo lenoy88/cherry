@@ -9,7 +9,7 @@
 
   <style>
     :root {
-      --cherry: #d92c42;
+      --red: #d92c42;
       --yellow: #ffe06b;
       --cream: #fff9ec;
       --brown: #452526;
@@ -36,12 +36,14 @@
     }
 
     button,
-    a {
+    a,
+    input {
       touch-action: manipulation;
     }
 
     button:focus-visible,
-    a:focus-visible {
+    a:focus-visible,
+    input:focus-visible {
       outline: 3px solid #355e43;
       outline-offset: 5px;
     }
@@ -51,13 +53,14 @@
       margin: auto;
       padding: 24px 6%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .logo {
-      color: var(--cherry);
+      color: var(--red);
       font: bold 26px Georgia, serif;
       text-decoration: none;
     }
@@ -68,9 +71,9 @@
     }
 
     .nav-links a {
+      text-decoration: none;
       font-size: 14px;
       font-weight: bold;
-      text-decoration: none;
     }
 
     .hero {
@@ -94,13 +97,13 @@
     }
 
     h1 {
+      margin: 26px 0;
       font: normal clamp(60px, 8vw, 105px)/1 Georgia, serif;
       letter-spacing: -4px;
-      margin: 26px 0;
     }
 
     h1 em {
-      color: var(--cherry);
+      color: var(--red);
     }
 
     .intro {
@@ -117,17 +120,17 @@
 
     .actions {
       display: flex;
-      flex-wrap: wrap;
       gap: 12px;
+      flex-wrap: wrap;
       margin-top: 28px;
     }
 
     .button {
       display: inline-block;
-      border: none;
-      border-radius: 35px;
       padding: 15px 24px;
-      background: var(--cherry);
+      border: 0;
+      border-radius: 35px;
+      background: var(--red);
       color: white;
       font: bold 15px Arial, sans-serif;
       text-decoration: none;
@@ -135,7 +138,7 @@
     }
 
     .button:hover {
-      filter: brightness(0.93);
+      filter: brightness(0.94);
     }
 
     .button.secondary {
@@ -145,20 +148,18 @@
     }
 
     .portrait {
-      position: relative;
       min-width: 0;
     }
 
     .photo-button {
       display: block;
+      position: relative;
       width: 100%;
       padding: 0;
       border: 0;
       border-radius: 180px 180px 24px 24px;
       background: #ffe5e5;
       cursor: pointer;
-      position: relative;
-      text-align: left;
     }
 
     .photo-button img {
@@ -179,19 +180,19 @@
 
     .photo-caption {
       position: absolute;
+      left: -12px;
       bottom: 25px;
-      left: -15px;
-      padding: 16px 22px;
+      padding: 16px 20px;
       border-radius: 10px;
       background: var(--yellow);
       color: var(--brown);
-      font: bold 19px Georgia, serif;
+      font: bold 18px Georgia, serif;
       transform: rotate(-5deg);
       pointer-events: none;
     }
 
     .photo-hint {
-      margin: 16px 0 0;
+      margin: 18px 0 0;
       text-align: center;
       font-size: 14px;
       color: #755b55;
@@ -199,7 +200,7 @@
 
     .ribbon {
       padding: 20px;
-      background: var(--cherry);
+      background: var(--red);
       color: var(--cream);
       text-align: center;
       font-weight: bold;
@@ -213,8 +214,8 @@
     }
 
     h2 {
-      font: normal clamp(36px, 5vw, 55px)/1.15 Georgia, serif;
       margin: 14px 0 24px;
+      font: normal clamp(36px, 5vw, 55px)/1.15 Georgia, serif;
     }
 
     .note {
@@ -231,16 +232,16 @@
 
     .menu-card {
       padding: 28px;
-      border-top: 3px solid var(--cherry);
+      border-top: 3px solid var(--red);
       border-radius: 0 0 22px 22px;
       background: #fff0d4;
     }
 
-    .menu-card:nth-child(2) {
+    .menu-card:nth-child(3n + 2) {
       background: #ffe5e5;
     }
 
-    .menu-card:nth-child(3) {
+    .menu-card:nth-child(3n) {
       background: #ecf0d8;
     }
 
@@ -249,11 +250,12 @@
     }
 
     .menu-card h3 {
-      font: 28px Georgia, serif;
       margin: 14px 0;
+      font: 27px Georgia, serif;
     }
 
     .menu-card p {
+      margin-bottom: 0;
       font-size: 15px;
     }
 
@@ -266,74 +268,45 @@
       background: var(--yellow);
     }
 
-    .about p {
+    .about h3 {
       margin-top: 0;
+      font: 27px/1.4 Georgia, serif;
     }
 
-    .music-section {
+    .music-panel {
+      padding: 30px;
+      border-radius: 24px;
       background: #f8d9df;
     }
 
-    .music-layout {
-      max-width: 1200px;
-      margin: auto;
-      padding: 65px 6%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    .music-controls {
+      display: flex;
       align-items: center;
-      gap: 45px;
-    }
-
-    .music-box {
-      min-width: 0;
-      padding: 26px;
-      border-radius: 22px;
-      background: var(--cherry);
-      color: white;
-    }
-
-    .music-box .button {
-      width: 100%;
-      background: var(--yellow);
-      color: var(--brown);
-    }
-
-    .player-frame {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      min-height: 200px;
-      overflow: hidden;
-      margin-bottom: 18px;
-      border-radius: 12px;
-      background: #a51d30;
-    }
-
-    .player-frame iframe {
-      display: block;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    #musicStatus,
-    .music-box a {
-      font-size: 14px;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
     .volume-control {
-      margin: 20px 0;
+      flex: 1;
+      min-width: 160px;
+      max-width: 300px;
     }
 
     .volume-control label {
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       font-size: 14px;
+      font-weight: bold;
     }
 
     .volume-control input {
       width: 100%;
-      accent-color: var(--yellow);
-      cursor: pointer;
+      accent-color: var(--red);
+    }
+
+    #musicStatus {
+      margin-bottom: 0;
+      font-size: 14px;
     }
 
     footer {
@@ -344,10 +317,6 @@
     }
 
     @media (max-width: 750px) {
-      nav {
-        flex-wrap: wrap;
-      }
-
       .logo {
         font-size: 23px;
       }
@@ -358,8 +327,7 @@
 
       .hero,
       .menu-grid,
-      .about,
-      .music-layout {
+      .about {
         grid-template-columns: 1fr;
       }
 
@@ -382,7 +350,7 @@
 
       .photo-caption {
         left: -10px;
-        font-size: 17px;
+        font-size: 16px;
       }
 
       .about {
@@ -393,6 +361,10 @@
       .ribbon {
         font-size: 13px;
         letter-spacing: 1px;
+      }
+
+      .section {
+        padding: 50px 6%;
       }
     }
 
@@ -405,20 +377,30 @@
 </head>
 
 <body>
+  <!-- Audio only: no video player appears. -->
+  <audio
+    id="backgroundMusic"
+    src="music.mp3"
+    loop
+    preload="none"
+  ></audio>
+
   <nav>
     <a class="logo" href="#">Cherry’s Table 🍒</a>
 
     <div class="nav-links">
       <a href="#menu">The menu</a>
       <a href="#chef">The chef</a>
-      <a href="#music">The music ♫</a>
+      <a href="#music">Music ♫</a>
     </div>
   </nav>
 
   <main>
     <section class="hero">
       <div>
-        <span class="tag">A LITTLE CHERRY. A LOT OF SOUL.</span>
+        <span class="tag">
+          A LITTLE CHERRY. A LOT OF SOUL.
+        </span>
 
         <h1>Good food.<br>Great <em>vibes.</em></h1>
 
@@ -428,17 +410,22 @@
           and a whole lot of flavor.
         </p>
 
-        <p class="eyebrow">By Chef Tyleletha Cherry</p>
+        <p class="eyebrow">
+          By Chef Tyleletha Cherry
+        </p>
 
         <div class="actions">
-          <a class="button" href="#menu">Explore the menu ↗</a>
+          <a class="button" href="#menu">
+            Explore the menu ↗
+          </a>
 
           <button
             class="button secondary"
             id="heroMusic"
             type="button"
+            aria-pressed="false"
           >
-            ♫ Play music
+            ▶ Play music
           </button>
         </div>
       </div>
@@ -448,7 +435,7 @@
           class="photo-button"
           id="photoMusic"
           type="button"
-          aria-label="Play music"
+          aria-label="Play background music"
           aria-pressed="false"
           aria-describedby="photoHint"
         >
@@ -463,7 +450,7 @@
         </button>
 
         <p class="photo-hint" id="photoHint">
-          Click her picture to play or pause the music.
+          Click her picture to play or pause background music.
         </p>
       </div>
     </section>
@@ -474,37 +461,65 @@
 
     <section class="section" id="menu">
       <span class="eyebrow">A taste of the possibilities</span>
+
       <h2>Comfort looks good on a plate.</h2>
 
       <p class="note">
-        Sample menu inspiration — final dishes coming soon.
+        Sample menu inspiration — final dishes and prices coming soon.
       </p>
 
       <div class="menu-grid">
         <article class="menu-card">
           <span class="food-icon" aria-hidden="true">🍗</span>
-          <h3>Golden & crispy</h3>
+          <h3>Golden Fried Chicken</h3>
           <p>
-            A fried chicken plate with comforting sides.
-            The kind of meal that feels like home.
+            Crispy golden chicken with comforting sides
+            and plenty of flavor.
           </p>
         </article>
 
         <article class="menu-card">
           <span class="food-icon" aria-hidden="true">🍤</span>
-          <h3>Something soulful</h3>
+          <h3>Shrimp & Grits</h3>
           <p>
-            Creamy shrimp and grits with a savory finish.
-            Big flavor, cozy energy.
+            Creamy grits topped with savory shrimp
+            for a comforting Southern-inspired plate.
+          </p>
+        </article>
+
+        <article class="menu-card">
+          <span class="food-icon" aria-hidden="true">🧀</span>
+          <h3>Baked Mac & Cheese</h3>
+          <p>
+            Rich, cheesy macaroni baked
+            with a golden top.
+          </p>
+        </article>
+
+        <article class="menu-card">
+          <span class="food-icon" aria-hidden="true">🥬</span>
+          <h3>Seasoned Greens</h3>
+          <p>
+            Tender greens with savory seasoning.
+            A comforting side for your plate.
+          </p>
+        </article>
+
+        <article class="menu-card">
+          <span class="food-icon" aria-hidden="true">🍞</span>
+          <h3>Golden Cornbread</h3>
+          <p>
+            A warm slice of cornbread
+            with a soft center and golden edges.
           </p>
         </article>
 
         <article class="menu-card">
           <span class="food-icon" aria-hidden="true">🍒</span>
-          <h3>Cherry on top</h3>
+          <h3>Cherry Sweet Finish</h3>
           <p>
-            A cherry-inspired dessert to end on a sweet note.
-            Save a little room.
+            A cherry-inspired dessert
+            to finish your meal on a sweet note.
           </p>
         </article>
       </div>
@@ -518,42 +533,39 @@
         </div>
 
         <div>
-          <h3>A table with her name on it. A welcome for you.</h3>
+          <h3>
+            A table with her name on it.<br>
+            A welcome for you.
+          </h3>
 
           <p>
             Welcome to the first taste of Cherry’s Table,
             a restaurant concept created for Chef Tyleletha Cherry.
             Bright colors, comforting food inspiration,
-            and a soundtrack to set the mood.
+            and music to set the mood.
           </p>
 
-          <a href="#music">Get into the vibe →</a>
+          <a href="#menu">Find your next favorite plate →</a>
         </div>
       </div>
     </section>
 
-    <section class="music-section" id="music">
-      <div class="music-layout">
-        <div>
-          <span class="eyebrow">The Cherry’s Table soundtrack</span>
-          <h2>Turn it up.<br>Stay a while.</h2>
+    <section class="section" id="music">
+      <div class="music-panel">
+        <span class="eyebrow">Set the mood</span>
+        <h2>A little music with your menu.</h2>
 
-          <p>
-            Click Tyleletha’s picture to start the music,
-            then keep exploring the page.
-            Click her picture again to pause.
-          </p>
-        </div>
+        <p>
+          Click her picture or press play.
+          The music keeps playing while you explore this page.
+        </p>
 
-        <div class="music-box">
-          <div class="player-frame">
-            <div id="youtubePlayer"></div>
-          </div>
-
+        <div class="music-controls">
           <button
             class="button"
             id="musicButton"
             type="button"
+            aria-pressed="false"
           >
             ▶ Play music
           </button>
@@ -568,19 +580,11 @@
               value="60"
             >
           </div>
-
-          <p id="musicStatus" role="status" aria-live="polite">
-            Loading music player…
-          </p>
-
-          <a
-            href="https://youtu.be/5rjB5JT9RC0"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Open in YouTube ↗
-          </a>
         </div>
+
+        <p id="musicStatus" role="status" aria-live="polite">
+          Click her picture to start the music.
+        </p>
       </div>
     </section>
   </main>
@@ -588,7 +592,9 @@
   <footer>
     <a class="logo" href="#">Cherry’s Table 🍒</a>
 
-    <p>Chef Tyleletha Cherry • Made with flavor & love.</p>
+    <p>
+      Chef Tyleletha Cherry • Made with flavor & love.
+    </p>
 
     <p class="note">
       Restaurant concept preview.
@@ -597,28 +603,42 @@
   </footer>
 
   <script>
+    const audio = document.getElementById("backgroundMusic");
     const photoButton = document.getElementById("photoMusic");
     const photoCaption = document.getElementById("photoCaption");
-    const musicButton = document.getElementById("musicButton");
+    const photoHint = document.getElementById("photoHint");
     const heroMusic = document.getElementById("heroMusic");
+    const musicButton = document.getElementById("musicButton");
     const musicStatus = document.getElementById("musicStatus");
     const volume = document.getElementById("volume");
 
-    let player;
-    let ready = false;
-    let playing = false;
-    let failed = false;
+    let starting = false;
+
+    audio.volume = Number(volume.value) / 100;
+
+    function showStatus(message) {
+      musicStatus.textContent = message;
+      photoHint.textContent = message;
+    }
 
     function updateControls() {
-      const label = playing ? "⏸ Pause music" : "▶ Play music";
+      const playing = !audio.paused;
+      const label = playing
+        ? "⏸ Pause music"
+        : "▶ Play music";
 
-      musicButton.textContent = label;
       heroMusic.textContent = label;
+      musicButton.textContent = label;
 
-      photoButton.setAttribute("aria-pressed", String(playing));
+      [photoButton, heroMusic, musicButton].forEach(function(button) {
+        button.setAttribute("aria-pressed", String(playing));
+      });
+
       photoButton.setAttribute(
         "aria-label",
-        playing ? "Pause music" : "Play music"
+        playing
+          ? "Pause background music"
+          : "Play background music"
       );
 
       photoCaption.textContent = playing
@@ -626,110 +646,67 @@
         : "▶ Click my picture for music 🍒";
     }
 
-    function toggleMusic() {
-      if (failed) {
-        musicStatus.textContent =
-          "The video could not load. Use the Open in YouTube link.";
+    async function toggleMusic() {
+      if (starting) {
         return;
       }
 
-      if (!ready) {
-        musicStatus.textContent =
-          "The player is still loading. Click her picture again shortly.";
+      if (!audio.paused) {
+        audio.pause();
         return;
       }
 
-      if (playing) {
-        player.pauseVideo();
-      } else {
-        player.unMute();
-        player.setVolume(Number(volume.value));
-        player.playVideo();
+      starting = true;
+      showStatus("Starting music…");
 
-        musicStatus.textContent =
-          "Starting music… If it does not start, use the video’s play button.";
+      try {
+        await audio.play();
+      } catch (error) {
+        updateControls();
+
+        showStatus(
+          "Music could not start. Check that music.mp3 is uploaded " +
+          "in the same folder as index.html, then try again."
+        );
+      } finally {
+        starting = false;
       }
     }
 
-    window.onYouTubeIframeAPIReady = function () {
-      const playerVars = {
-        playsinline: 1,
-        rel: 0,
-        loop: 1,
-        playlist: "5rjB5JT9RC0"
-      };
-
-      if (location.protocol === "https:" ||
-          location.protocol === "http:") {
-        playerVars.origin = location.origin;
-      }
-
-      player = new YT.Player("youtubePlayer", {
-        width: "100%",
-        height: "100%",
-        videoId: "5rjB5JT9RC0",
-        playerVars: playerVars,
-
-        events: {
-          onReady: function (event) {
-            ready = true;
-
-            event.target.setVolume(Number(volume.value));
-
-            musicStatus.textContent =
-              "Ready! Click her picture to play music.";
-          },
-
-          onStateChange: function (event) {
-            playing = event.data === YT.PlayerState.PLAYING;
-            updateControls();
-
-            if (event.data === YT.PlayerState.PLAYING) {
-              musicStatus.textContent =
-                "Music is playing. Keep browsing! Click her picture to pause.";
-            } else if (event.data === YT.PlayerState.PAUSED) {
-              musicStatus.textContent =
-                "Music paused. Click her picture to continue.";
-            } else if (event.data === YT.PlayerState.BUFFERING) {
-              musicStatus.textContent = "Music is buffering…";
-            } else if (event.data === YT.PlayerState.ENDED) {
-              musicStatus.textContent =
-                "Click her picture to play again.";
-            }
-          },
-
-          onError: function () {
-            failed = true;
-            playing = false;
-            updateControls();
-
-            musicStatus.textContent =
-              "This video cannot play here. Use Open in YouTube below.";
-          }
-        }
-      });
-    };
-
     photoButton.addEventListener("click", toggleMusic);
-    musicButton.addEventListener("click", toggleMusic);
     heroMusic.addEventListener("click", toggleMusic);
+    musicButton.addEventListener("click", toggleMusic);
 
-    volume.addEventListener("input", function () {
-      if (ready) {
-        player.setVolume(Number(volume.value));
-      }
+    audio.addEventListener("play", function() {
+      updateControls();
     });
 
-    const youtubeScript = document.createElement("script");
-    youtubeScript.src = "https://www.youtube.com/iframe_api";
+    audio.addEventListener("playing", function() {
+      updateControls();
+      showStatus("♫ Music playing — enjoy the menu!");
+    });
 
-    youtubeScript.onerror = function () {
-      failed = true;
-      musicStatus.textContent =
-        "The music player could not load. Use Open in YouTube below.";
-    };
+    audio.addEventListener("pause", function() {
+      updateControls();
+      showStatus("Music paused. Click her picture to continue.");
+    });
 
-    document.head.appendChild(youtubeScript);
+    audio.addEventListener("waiting", function() {
+      showStatus("Music is loading…");
+    });
+
+    audio.addEventListener("error", function() {
+      updateControls();
+
+      showStatus(
+        "Music file missing or unsupported. " +
+        "Upload a working MP3 named music.mp3."
+      );
+    });
+
+    volume.addEventListener("input", function() {
+      audio.volume = Number(volume.value) / 100;
+    });
 
     updateControls();
   </script>
