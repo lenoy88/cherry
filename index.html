@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#d92c42">
-  <title>Cherry’s Table | Chef Tylethal Cherry</title>
+  <title>Cherry’s Table | Chef Tyletha Cherry</title>
 
   <style>
     :root {
@@ -413,7 +413,9 @@
           and a whole lot of flavor.
         </p>
 
-        <p class="eyebrow">By Chef Tylethal Cherry</p>
+        <p class="eyebrow">
+          By Chef Tyletha Cherry • Ty Ty
+        </p>
 
         <div class="actions">
           <a class="button" href="#menu">Explore the menu ↗</a>
@@ -438,7 +440,7 @@
           aria-pressed="false"
           aria-describedby="photoHint"
         >
-          <img src="chef.png" alt="Ty Ty — Tylethal Cherry">
+          <img src="chef.png" alt="Ty Ty — Tyletha Cherry">
 
           <span class="photo-caption" id="photoCaption">
             ▶ Click my picture to play 🍒
@@ -446,7 +448,7 @@
         </button>
 
         <p class="photo-hint" id="photoHint">
-          Click her picture to play or pause the music.
+          Click Ty Ty’s picture to play or pause the music.
         </p>
       </div>
     </section>
@@ -457,6 +459,7 @@
 
     <section class="section" id="menu">
       <span class="eyebrow">A taste of the possibilities</span>
+
       <h2>Comfort looks good on a plate.</h2>
 
       <p class="note">
@@ -497,7 +500,8 @@
       <div class="about">
         <div>
           <span class="eyebrow">The face behind the table</span>
-          <h2>Chef Tylethal Cherry.</h2>
+          <h2>Chef Tyletha Cherry.</h2>
+          <p><strong>Known as Ty Ty 🍒</strong></p>
         </div>
 
         <div>
@@ -505,9 +509,9 @@
 
           <p>
             Welcome to the first taste of Cherry’s Table,
-            a restaurant concept created for Chef Tylethal Cherry.
-            Bright colors, comforting food inspiration,
-            and a soundtrack to set the mood.
+            a restaurant concept created for Chef Tyletha Cherry,
+            also known as Ty Ty. Bright colors, comforting food
+            inspiration, and a soundtrack to set the mood.
           </p>
 
           <a href="#music">Get into the vibe →</a>
@@ -519,6 +523,7 @@
       <div class="music-layout">
         <div>
           <span class="eyebrow">The Cherry’s Table soundtrack</span>
+
           <h2>Turn it up.<br>Stay a while.</h2>
 
           <p>
@@ -550,6 +555,7 @@
 
           <div class="volume-control">
             <label for="volume">Music volume</label>
+
             <input
               id="volume"
               type="range"
@@ -577,7 +583,10 @@
 
   <footer>
     <a class="logo" href="#">Cherry’s Table 🍒</a>
-    <p>Chef Tylethal Cherry • Made with flavor & love.</p>
+
+    <p>
+      Chef Tyletha Cherry • Ty Ty • Made with flavor & love.
+    </p>
 
     <p class="note">
       Restaurant concept preview.
@@ -676,6 +685,7 @@
           onReady: function(event) {
             ready = true;
             event.target.setVolume(Number(volume.value));
+
             message("Ready! Click Ty Ty’s picture to play.");
           },
 
@@ -689,11 +699,11 @@
               clearTimeout(playbackCheck);
               message("♫ Music playing — enjoy the menu!");
             } else if (event.data === YT.PlayerState.PAUSED) {
-              message("Paused. Click her picture to continue.");
+              message("Paused. Click Ty Ty’s picture to continue.");
             } else if (event.data === YT.PlayerState.BUFFERING) {
               message("Music is loading…");
             } else if (event.data === YT.PlayerState.ENDED) {
-              message("Click her picture to play again.");
+              message("Click Ty Ty’s picture to play again.");
             }
           },
 
