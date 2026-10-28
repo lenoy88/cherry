@@ -1,134 +1,100 @@
-<script>
-  const photo = document.getElementById("photoMusic");
-  const caption = document.getElementById("photoCaption");
-  const hint = document.getElementById("photoHint");
-  const heroPlay = document.getElementById("heroMusic");
-  const musicPlay = document.getElementById("musicButton");
-  const status = document.getElementById("musicStatus");
-  const volume = document.getElementById("volume");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#d92c42">
+  <title>Cherry’s Table | Chef Tyleletha Cherry</title>
 
-  let player;
-  let ready = false;
-
-  function message(text) {
-    if (hint) hint.textContent = text;
-    if (status) status.textContent = text;
-  }
-
-  function updateButtons(playing) {
-    const label = playing ? "⏸ Pause music" : "▶ Play music";
-
-    [heroPlay, musicPlay].forEach(function(button) {
-      if (button) button.textContent = label;
-    });
-
-    [photo, heroPlay, musicPlay].forEach(function(button) {
-      if (button) {
-        button.setAttribute("aria-pressed", String(playing));
-      }
-    });
-
-    if (photo) {
-      photo.setAttribute(
-        "aria-label",
-        playing ? "Pause music" : "Play music"
-      );
+  <style>
+    :root {
+      --red: #d92c42;
+      --yellow: #ffe06b;
+      --cream: #fff9ec;
+      --brown: #452526;
     }
 
-    if (caption) {
-      caption.textContent = playing
-        ? "⏸ Click my picture to pause 🍒"
-        : "▶ Click my picture to play 🍒";
-    }
-  }
-
-  function toggleMusic() {
-    if (!ready) {
-      message("Player loading. Click her picture again shortly.");
-      return;
+    * {
+      box-sizing: border-box;
     }
 
-    if (player.getPlayerState() === YT.PlayerState.PLAYING) {
-      player.pauseVideo();
-    } else {
-      player.unMute();
-      player.playVideo();
-
-      message(
-        "Starting music. If needed, press Play on the video below."
-      );
+    html {
+      scroll-behavior: smooth;
     }
-  }
 
-  window.onYouTubeIframeAPIReady = function() {
-    player = new YT.Player("youtubePlayer", {
-      width: "100%",
-      height: "100%",
-      videoId: "kFZxHg1wK24",
-
-      playerVars: {
-        playsinline: 1,
-        rel: 0,
-        loop: 1,
-        playlist: "kFZxHg1wK24"
-      },
-
-      events: {
-        onReady: function(event) {
-          ready = true;
-
-          event.target.setVolume(
-            volume ? Number(volume.value) : 60
-          );
-
-          message("Ready! Click Ty Ty’s picture to play music.");
-        },
-
-        onStateChange: function(event) {
-          const playing =
-            event.data === YT.PlayerState.PLAYING;
-
-          updateButtons(playing);
-
-          if (playing) {
-            message("♫ Music playing — keep browsing!");
-          } else if (event.data === YT.PlayerState.PAUSED) {
-            message("Paused. Click her picture to continue.");
-          } else if (event.data === YT.PlayerState.BUFFERING) {
-            message("Music loading…");
-          }
-        },
-
-        onError: function() {
-          updateButtons(false);
-          message(
-            "YouTube could not play this video here. " +
-            "Try the video’s Watch on YouTube link."
-          );
-        }
-      }
-    });
-  };
-
-  [photo, heroPlay, musicPlay].forEach(function(button) {
-    if (button) {
-      button.addEventListener("click", toggleMusic);
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--brown);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
     }
-  });
 
-  if (volume) {
-    volume.addEventListener("input", function() {
-      if (ready) player.setVolume(Number(volume.value));
-    });
-  }
+    a {
+      color: inherit;
+    }
 
-  const script = document.createElement("script");
-  script.src = "https://www.youtube.com/iframe_api";
+    button,
+    a,
+    input {
+      touch-action: manipulation;
+    }
 
-  script.onerror = function() {
-    message("YouTube could not load. Refresh the page to try again.");
-  };
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible {
+      outline: 3px solid #355e43;
+      outline-offset: 5px;
+    }
 
-  document.head.appendChild(script);
-  updateButtons(false);
-</script>
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 24px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--red);
+      font: bold 26px Georgia, serif;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 6% 70px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 30px;
+      background: var(--yellow);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      margin: 26px 0
