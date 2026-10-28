@@ -26,8 +26,7 @@
       margin: 0;
       background: var(--cream);
       color: var(--brown);
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
+      font: 17px/1.6 Arial, sans-serif;
     }
 
     a {
@@ -89,12 +88,651 @@
     .tag {
       display: inline-block;
       padding: 8px 16px;
-      border-radius: 30px;
       background: var(--yellow);
+      border-radius: 30px;
       font-size: 12px;
       font-weight: bold;
       letter-spacing: 1px;
     }
 
     h1 {
-      margin: 26px 0
+      margin: 26px 0;
+      font: normal clamp(60px, 8vw, 105px)/1 Georgia, serif;
+      letter-spacing: -4px;
+    }
+
+    h1 em {
+      color: var(--red);
+    }
+
+    .intro {
+      max-width: 420px;
+      font-size: 19px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 24px;
+      border: 0;
+      border-radius: 35px;
+      background: var(--red);
+      color: white;
+      font: bold 15px Arial, sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      filter: brightness(0.94);
+    }
+
+    .secondary {
+      border: 1px solid #bba69d;
+      background: transparent;
+      color: var(--brown);
+    }
+
+    .portrait {
+      min-width: 0;
+    }
+
+    .photo-button {
+      display: block;
+      position: relative;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      border-radius: 180px 180px 24px 24px;
+      background: #ffe5e5;
+      cursor: pointer;
+    }
+
+    .photo-button img {
+      display: block;
+      width: 100%;
+      height: 530px;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
+    .photo-button[aria-pressed="true"] {
+      box-shadow: 0 0 0 6px var(--yellow);
+    }
+
+    .photo-caption {
+      position: absolute;
+      bottom: 25px;
+      left: -12px;
+      padding: 16px 20px;
+      border-radius: 10px;
+      background: var(--yellow);
+      color: var(--brown);
+      font: bold 18px Georgia, serif;
+      transform: rotate(-5deg);
+      pointer-events: none;
+    }
+
+    .photo-hint {
+      margin-top: 18px;
+      text-align: center;
+      color: #755b55;
+      font-size: 14px;
+    }
+
+    .ribbon {
+      padding: 20px;
+      background: var(--red);
+      color: var(--cream);
+      text-align: center;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 70px 6%;
+    }
+
+    h2 {
+      margin: 14px 0 24px;
+      font: normal clamp(36px, 5vw, 55px)/1.15 Georgia, serif;
+    }
+
+    .note {
+      color: #755b55;
+      font-size: 14px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .menu-card {
+      padding: 28px;
+      border-top: 3px solid var(--red);
+      border-radius: 0 0 22px 22px;
+      background: #fff0d4;
+    }
+
+    .menu-card:nth-child(2) {
+      background: #ffe5e5;
+    }
+
+    .menu-card:nth-child(3) {
+      background: #ecf0d8;
+    }
+
+    .food-icon {
+      font-size: 48px;
+    }
+
+    .menu-card h3 {
+      margin: 14px 0;
+      font: 28px Georgia, serif;
+    }
+
+    .menu-card p {
+      font-size: 15px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 35px;
+      padding: 40px;
+      border-radius: 25px;
+      background: var(--yellow);
+    }
+
+    .music-section {
+      background: #f8d9df;
+    }
+
+    .music-layout {
+      max-width: 1200px;
+      margin: auto;
+      padding: 65px 6%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .music-box {
+      min-width: 0;
+      padding: 24px;
+      border-radius: 22px;
+      background: var(--red);
+      color: white;
+    }
+
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      min-height: 200px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #32191d;
+    }
+
+    .video-frame iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .music-box .button {
+      width: 100%;
+      background: var(--yellow);
+      color: var(--brown);
+    }
+
+    .volume-control {
+      margin: 20px 0;
+    }
+
+    .volume-control label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .volume-control input {
+      width: 100%;
+      accent-color: var(--yellow);
+    }
+
+    .music-box p,
+    .music-box a {
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 30px 6%;
+      text-align: center;
+    }
+
+    @media (max-width: 750px) {
+      .hero,
+      .menu-grid,
+      .about,
+      .music-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        gap: 35px;
+      }
+
+      h1 {
+        font-size: clamp(56px, 13vw, 78px);
+        letter-spacing: -3px;
+      }
+
+      .logo {
+        font-size: 23px;
+      }
+
+      .nav-links {
+        gap: 18px;
+      }
+
+      .portrait {
+        margin-left: 10px;
+      }
+
+      .photo-button img {
+        height: 440px;
+      }
+
+      .photo-caption {
+        left: -10px;
+        font-size: 16px;
+      }
+
+      .about {
+        padding: 28px;
+        gap: 12px;
+      }
+
+      .ribbon {
+        font-size: 13px;
+        letter-spacing: 1px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a class="logo" href="#">Cherry’s Table 🍒</a>
+
+    <div class="nav-links">
+      <a href="#menu">The menu</a>
+      <a href="#chef">The chef</a>
+      <a href="#music">The music ♫</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="tag">A LITTLE CHERRY. A LOT OF SOUL.</span>
+
+        <h1>Good food.<br>Great <em>vibes.</em></h1>
+
+        <p class="intro">
+          Pull up a chair at Cherry’s Table.
+          A little comfort, a little sunshine,
+          and a whole lot of flavor.
+        </p>
+
+        <p class="eyebrow">By Chef Tyleletha Cherry</p>
+
+        <div class="actions">
+          <a class="button" href="#menu">Explore the menu ↗</a>
+
+          <button
+            class="button secondary"
+            id="heroMusic"
+            type="button"
+            aria-pressed="false"
+          >
+            ▶ Play music
+          </button>
+        </div>
+      </div>
+
+      <div class="portrait">
+        <button
+          class="photo-button"
+          id="photoMusic"
+          type="button"
+          aria-label="Play music"
+          aria-pressed="false"
+          aria-describedby="photoHint"
+        >
+          <img src="chef.png" alt="Ty Ty — Tyleletha Cherry">
+
+          <span class="photo-caption" id="photoCaption">
+            ▶ Click my picture to play 🍒
+          </span>
+        </button>
+
+        <p class="photo-hint" id="photoHint">
+          Click her picture to play or pause the music.
+        </p>
+      </div>
+    </section>
+
+    <div class="ribbon">
+      GOOD FOOD ✦ WARM WELCOMES ✦ CHERRY’S TABLE ✦ GOOD VIBES
+    </div>
+
+    <section class="section" id="menu">
+      <span class="eyebrow">A taste of the possibilities</span>
+      <h2>Comfort looks good on a plate.</h2>
+
+      <p class="note">
+        Sample menu inspiration — final dishes coming soon.
+      </p>
+
+      <div class="menu-grid">
+        <article class="menu-card">
+          <span class="food-icon" aria-hidden="true">🍗</span>
+          <h3>Golden & crispy</h3>
+          <p>
+            A fried chicken plate with comforting sides.
+            The kind of meal that feels like home.
+          </p>
+        </article>
+
+        <article class="menu-card">
+          <span class="food-icon" aria-hidden="true">🍤</span>
+          <h3>Something soulful</h3>
+          <p>
+            Creamy shrimp and grits with a savory finish.
+            Big flavor, cozy energy.
+          </p>
+        </article>
+
+        <article class="menu-card">
+          <span class="food-icon" aria-hidden="true">🍒</span>
+          <h3>Cherry on top</h3>
+          <p>
+            A cherry-inspired dessert to end on a sweet note.
+            Save a little room.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="chef">
+      <div class="about">
+        <div>
+          <span class="eyebrow">The face behind the table</span>
+          <h2>Chef Tyleletha Cherry.</h2>
+        </div>
+
+        <div>
+          <h3>A table with her name on it. A welcome for you.</h3>
+
+          <p>
+            Welcome to the first taste of Cherry’s Table,
+            a restaurant concept created for Chef Tyleletha Cherry.
+            Bright colors, comforting food inspiration,
+            and a soundtrack to set the mood.
+          </p>
+
+          <a href="#music">Get into the vibe →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="music-section" id="music">
+      <div class="music-layout">
+        <div>
+          <span class="eyebrow">The Cherry’s Table soundtrack</span>
+          <h2>Turn it up.<br>Stay a while.</h2>
+
+          <p>
+            Click Ty Ty’s picture to start the music.
+            Keep browsing while it plays.
+            Click her picture again to pause.
+          </p>
+        </div>
+
+        <div class="music-box">
+          <div class="video-frame">
+            <iframe
+              id="youtubePlayer"
+              title="Cherry’s Table music"
+              src="https://www.youtube.com/embed/kFZxHg1wK24?enablejsapi=1&amp;playsinline=1&amp;rel=0&amp;loop=1&amp;playlist=kFZxHg1wK24"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <button
+            class="button"
+            id="musicButton"
+            type="button"
+            aria-pressed="false"
+          >
+            ▶ Play music
+          </button>
+
+          <div class="volume-control">
+            <label for="volume">Music volume</label>
+            <input
+              id="volume"
+              type="range"
+              min="0"
+              max="100"
+              value="60"
+            >
+          </div>
+
+          <p id="musicStatus" role="status" aria-live="polite">
+            Loading music controls…
+          </p>
+
+          <a
+            href="https://youtu.be/kFZxHg1wK24"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open in YouTube ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#">Cherry’s Table 🍒</a>
+    <p>Chef Tyleletha Cherry • Made with flavor & love.</p>
+
+    <p class="note">
+      Restaurant concept preview.
+      Final menu, prices, location, and hours coming soon.
+    </p>
+  </footer>
+
+  <script>
+    const photo = document.getElementById("photoMusic");
+    const caption = document.getElementById("photoCaption");
+    const hint = document.getElementById("photoHint");
+    const heroPlay = document.getElementById("heroMusic");
+    const musicPlay = document.getElementById("musicButton");
+    const status = document.getElementById("musicStatus");
+    const volume = document.getElementById("volume");
+
+    let player;
+    let ready = false;
+    let failed = false;
+    let playbackCheck;
+
+    function message(text) {
+      hint.textContent = text;
+      status.textContent = text;
+    }
+
+    function updateButtons(playing) {
+      const label = playing
+        ? "⏸ Pause music"
+        : "▶ Play music";
+
+      heroPlay.textContent = label;
+      musicPlay.textContent = label;
+
+      [photo, heroPlay, musicPlay].forEach(function(button) {
+        button.setAttribute("aria-pressed", String(playing));
+      });
+
+      photo.setAttribute(
+        "aria-label",
+        playing ? "Pause music" : "Play music"
+      );
+
+      caption.textContent = playing
+        ? "⏸ Click my picture to pause 🍒"
+        : "▶ Click my picture to play 🍒";
+    }
+
+    function toggleMusic() {
+      if (failed) {
+        message(
+          "YouTube could not play this video here. " +
+          "Use Open in YouTube below."
+        );
+        return;
+      }
+
+      if (!ready) {
+        message(
+          "Music controls are loading. Click again shortly, " +
+          "or press Play directly on the video."
+        );
+        return;
+      }
+
+      clearTimeout(playbackCheck);
+
+      if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+        player.pauseVideo();
+        return;
+      }
+
+      player.unMute();
+      player.setVolume(Number(volume.value));
+      player.playVideo();
+
+      message("Starting music…");
+
+      playbackCheck = setTimeout(function() {
+        if (
+          ready &&
+          !failed &&
+          player.getPlayerState() !== YT.PlayerState.PLAYING
+        ) {
+          message(
+            "If music has not started, press Play directly " +
+            "on the video in the music section."
+          );
+        }
+      }, 5000);
+    }
+
+    window.onYouTubeIframeAPIReady = function() {
+      player = new YT.Player("youtubePlayer", {
+        events: {
+          onReady: function(event) {
+            ready = true;
+            event.target.setVolume(Number(volume.value));
+            message("Ready! Click Ty Ty’s picture to play.");
+          },
+
+          onStateChange: function(event) {
+            const playing =
+              event.data === YT.PlayerState.PLAYING;
+
+            updateButtons(playing);
+
+            if (playing) {
+              clearTimeout(playbackCheck);
+              message("♫ Music playing — enjoy the menu!");
+            } else if (event.data === YT.PlayerState.PAUSED) {
+              message("Paused. Click her picture to continue.");
+            } else if (event.data === YT.PlayerState.BUFFERING) {
+              message("Music is loading…");
+            } else if (event.data === YT.PlayerState.ENDED) {
+              message("Click her picture to play again.");
+            }
+          },
+
+          onError: function() {
+            failed = true;
+            clearTimeout(playbackCheck);
+            updateButtons(false);
+
+            message(
+              "YouTube could not play this video here. " +
+              "Use Open in YouTube below."
+            );
+          }
+        }
+      });
+    };
+
+    photo.addEventListener("click", toggleMusic);
+    heroPlay.addEventListener("click", toggleMusic);
+    musicPlay.addEventListener("click", toggleMusic);
+
+    volume.addEventListener("input", function() {
+      if (ready && !failed) {
+        player.setVolume(Number(volume.value));
+      }
+    });
+
+    const apiScript = document.createElement("script");
+    apiScript.src = "https://www.youtube.com/iframe_api";
+
+    apiScript.onerror = function() {
+      message(
+        "Music controls could not load. " +
+        "Press Play directly on the video below."
+      );
+    };
+
+    document.head.appendChild(apiScript);
+    updateButtons(false);
+  </script>
+</body>
+</html>
